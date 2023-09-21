@@ -42,7 +42,7 @@ internal static class DamageSupport_MutatorTower_Mutate
             {
                 if (proj.HasBehavior<DamageModel>(out var damageModel) && damageModel.damage > 0)
                 {
-                    damageModel.damage *= mult;
+                    damageModel.damage *= (10 * mult);
 
                     foreach (var tag in new[] { BloonTag.Boss, BloonTag.Elite })
                     {
@@ -50,7 +50,7 @@ internal static class DamageSupport_MutatorTower_Mutate
                         if (proj.behaviors.FirstOrDefault(b => b.name == name)
                             .Is(out DamageModifierForTagModel modifier))
                         {
-                            modifier.damageMultiplier *= mult;
+                            modifier.damageMultiplier *= (10 * mult);
                         }
                         else
                         {
